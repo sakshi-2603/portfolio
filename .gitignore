@@ -1,0 +1,14 @@
+# Ignore sensitive files
+.env
+
+# Composer dependencies
+/vendor/
+
+# Logs, cache, system & editor files
+*.log
+*.cache
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+node_modules/

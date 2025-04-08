@@ -36,33 +36,40 @@
   ======================================================== -->
 </head>
 
-<body class="index-page">
-  <script>
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-    e.preventDefault();
 
-    let formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        subject: document.getElementById('subject').value,
-        message: document.getElementById('message').value
-    };
-
-    fetch('http://localhost/MyResume-1.0.0/forms/contact.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: new URLSearchParams(formData)
-    })
-    .then(response => response.json())
-    .then(data => {
-        alert(data.message);
-    })
-    .catch(error => console.error('Error:', error));
-});
-
+<script>
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+  
+      let formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          subject: document.getElementById('subject').value,
+          message: document.getElementById('message').value
+      };
+  
+      fetch('http://localhost/MyResume-1.0.0/MyResume-1.0.0/forms/contact.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams(formData)
+      })
+      .then(response => response.json())
+      .then(data => {
+          if(data.success === true) {
+              alert(data.message);  // Success: No Error word
+          } else {
+              alert('Error: ' + data.message);  // Failure only
+          }
+      })
+      .catch(error => {
+          alert('Something went wrong!');
+      });
+  
+  });
   </script>
+  
 
   <header id="header" class="header d-flex flex-column justify-content-center">
 
@@ -79,6 +86,7 @@
     </nav>
 
   </header>
+  <body class="index-page"></body>
 
   <main class="main">
 
@@ -93,9 +101,9 @@
             <h2>Sakshi Rajepandhare</h2>
             <p>I'm <span class="typed" data-typed-items="Web Developer">Web Developer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
             <div class="social-links">
-              <a href="#"><i class="bi bi-github"></i></a>
-              <a href="#"><i class="bi bi-instagram"></i></a>
-              <a href="#"><i class="bi bi-linkedin"></i></a>
+              <a href="https://github.com/sakshi-2603"><i class="bi bi-github"></i></a>
+              <a href="https://www.instagram.com/sakshi_rajepandhare_26"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/sakshi-rajepandhare-553270266"><i class="bi bi-linkedin"></i></a>
             </div>
           </div>
         </div>
@@ -442,19 +450,15 @@
       
       <div class="social-links d-flex justify-content-center">
         
-        <a href=""><i class="bi bi-github"></i></a>
-        <a href=""><i class="bi bi-instagram"></i></a>
-        <a href=""><i class="bi bi-linkedin"></i></a>
+        <a href="https://github.com/sakshi-2603"><i class="bi bi-github"></i></a>
+              <a href="https://www.instagram.com/sakshi_rajepandhare_26"><i class="bi bi-instagram"></i></a>
+              <a href="https://www.linkedin.com/in/sakshi-rajepandhare-553270266"><i class="bi bi-linkedin"></i></a>
       </div>
       <div class="container">
         <div class="copyright">
           <span>Copyright</span> <strong class="px-1 sitename">Sakshi Rajepandhare</strong> <span>All Rights Reserved</span>
         </div>
         <div class="credits">
-          <!-- All the links in the footer should remain intact. -->
-          <!-- You can delete the links only if you've purchased the pro version. -->
-          <!-- Licensing information: https://bootstrapmade.com/license/ -->
-          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
           Designed by sakshi rajepandhare
         </div>
       </div>
